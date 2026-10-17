@@ -406,8 +406,8 @@ function updateCart() {
             const qty = item.qty || 1;
             return `
                 <div class="cart-item">
-                <img src="${item.image}" alt="${item.name}" style="width:56px; height:56px; object-fit:contain; border-radius:8px; background:#f8fafc; margin-right:12px; flex-shrink:0;">
-                <div class="cart-item-info">
+                    <img src="${item.image}" alt="${item.name}" style="width:56px; height:56px; object-fit:contain; border-radius:8px; background:#f8fafc; margin-right:12px; flex-shrink:0;">
+                    <div class="cart-item-info">
                     <h4>${item.name}</h4>
                     <small>${(item.price * qty).toFixed(2)} ₼ (${item.price.toFixed(2)} ₼ × ${qty})</small>
                 </div>
