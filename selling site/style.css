@@ -870,3 +870,20 @@ body {
     align-self: flex-start;
     margin-top: 8px;
 }
+
+/* Səbət paneli: məzmun qədər hündürlük (boş yer qalmır) */
+.cart-modal {
+    align-items: flex-start;
+}
+
+.cart-content {
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+    border-bottom-left-radius: 24px;
+}
+
+.cart-items {
+    flex: 0 0 auto;
+    overflow: visible;
+}
