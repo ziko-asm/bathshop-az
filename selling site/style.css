@@ -833,3 +833,40 @@ body {
         align-items: flex-start;
     }
 }
+
+/* Səbət məhsul kartı (yeni) */
+.cart-item {
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 0;
+}
+
+.cart-item-img {
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.cart-item-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cart-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cart-item-info .qty-controls {
+    align-self: flex-start;
+    margin-top: 8px;
+}
