@@ -401,20 +401,22 @@ function updateCart() {
         return;
     }
 
-    if (cartItemsContainer) {
+        if (cartItemsContainer) {
         cartItemsContainer.innerHTML = cart.map(item => {
             const qty = item.qty || 1;
             return `
-                <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}" style="width:56px; height:56px; object-fit:contain; border-radius:8px; background:#f8fafc; margin-right:12px; flex-shrink:0;">
-                    <div class="cart-item-info">
+            <div class="cart-item">
+                <div class="cart-item-img">
+                    <img src="${item.image}" alt="${item.name}">
+                </div>
+                <div class="cart-item-info">
                     <h4>${item.name}</h4>
                     <small>${(item.price * qty).toFixed(2)} ₼ (${item.price.toFixed(2)} ₼ × ${qty})</small>
-                </div>
-                <div class="qty-controls">
-                    <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
-                    <span>${qty}</span>
-                    <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
+                        <span>${qty}</span>
+                        <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                    </div>
                 </div>
                 <button class="remove-btn" onclick="removeFromCart(${item.id})" title="Sil">
                     <i class="fas fa-trash"></i>
