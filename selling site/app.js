@@ -104,7 +104,20 @@ const products = [
     }
 ];
 
-let cart = JSON.parse(localStorage.getItem('bathshop_cart')) || [];
+// Səbət localStorage-dan oxunur; qiymətlər həmişə cari məhsul siyahısından yenilənir
+let cart = (() => {
+    try {
+        const saved = JSON.parse(localStorage.getItem('bathshop_cart')) || [];
+        return saved
+            .map(item => {
+                const fresh = products.find(p => p.id === item.id);
+                return fresh ? { ...fresh, qty: item.qty || 1 } : null;
+            })
+            .filter(Boolean);
+    } catch (e) {
+        return [];
+    }
+})();
 let currentCategory = 'all';
 let currentLang = 'az';
 
@@ -190,10 +203,10 @@ const BACKEND_URL = "https://bathshop-api.onrender.com";
 // Kateqoriya üzrə filtrləmə
 function filterProducts(category) {
     currentCategory = category;
-    
+
     const buttons = document.querySelectorAll('.filter-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
-    
+
     const activeBtn = document.getElementById(`btn-${category}`);
     if (activeBtn) activeBtn.classList.add('active');
 
@@ -204,7 +217,7 @@ function filterProducts(category) {
 function changeLanguage(lang) {
     currentLang = lang;
     const t = translations[lang];
-    
+
     const setText = (id, text) => {
         const el = document.getElementById(id);
         if (el) el.innerText = text;
@@ -233,12 +246,12 @@ function changeLanguage(lang) {
     updateCart();
 }
 
-// Məhsulları ekrana düzək
+// Məhsulları ekrana düz
 function renderProducts() {
     if (!productsContainer) return;
 
-    const filteredProducts = currentCategory === 'all' 
-        ? products 
+    const filteredProducts = currentCategory === 'all'
+        ? products
         : products.filter(p => p.category === currentCategory);
 
     const t = translations[currentLang];
@@ -275,20 +288,26 @@ function openProductModal(productId) {
 
     const t = translations[currentLang];
 
+    const specsHtml = (product.specs || [])
+        .map(spec => `<li>${spec}</li>`)
+        .join('');
+
+    const descHtml = product.description
+        ? `<p style="color:#475569; margin-bottom:12px;">${product.description}</p>`
+        : '';
+
     modalProductDetails.innerHTML = `
         <div class="detail-grid">
             <img src="${product.image}" alt="${product.name}">
             <h2>${product.name}</h2>
             <div class="product-price" style="margin-top:8px;">${product.price.toFixed(2)} ₼</div>
-            ${product.description ? `<p style="color:#475569; margin-bottom:12px;">\${product.description}</p>` : ''}
+            ${descHtml}
             <div class="contact-info">
                 <i class="fas fa-phone-alt"></i> Əlaqə nömrəsi: <a href="tel:${product.phone}">${product.phone}</a>
             </div>
             <div class="detail-specs">
                 <strong>Texniki xüsusiyyətlər və üstünlüklər:</strong>
-                <ul>
-                    ${product.specs.map(spec => `<li>\${spec}</li>`).join('')}
-                </ul>
+                <ul>${specsHtml}</ul>
             </div>
             <button class="add-to-cart" onclick="addToCart(${product.id}); closeProductModal();" style="width:100%; margin-top: 18px; padding: 14px;">
                 <i class="fas fa-cart-plus"></i> ${t.addToCart}
@@ -366,7 +385,7 @@ function saveAndSyncCart() {
 function updateCart() {
     const totalItems = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
     if (cartCount) cartCount.innerText = totalItems;
-    
+
     const t = translations[currentLang];
 
     if (cart.length === 0) {
@@ -510,14 +529,14 @@ function updatePhoneMask() {
     const countrySelect = document.getElementById('country-code');
     const phoneInput = document.getElementById('customer-phone');
     const phoneHint = document.getElementById('phone-hint');
-    
+
     if (!countrySelect || !phoneInput) return;
 
     const selectedOption = countrySelect.options[countrySelect.selectedIndex];
     const maxLength = selectedOption.getAttribute('data-length');
-    
+
     phoneInput.setAttribute('maxlength', maxLength);
-    phoneInput.value = ''; 
+    phoneInput.value = '';
     if (phoneHint) {
         phoneHint.textContent = `Nömrəni kodsuz daxil edin (${maxLength} rəqəm)`;
     }
