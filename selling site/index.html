@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bathshop.az - Hamam və Banyo Məhsulları</title>
+    <!-- FontAwesome ikonlar üçün -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Yuxarı Naviqasiya -->
+    <header class="site-header">
+        <a href="#" class="logo-container">
+            <div class="logo-icon">
+                <i class="fas fa-bath"></i>
+            </div>
+            <img src="logo.png" alt="BathShop" class="site-logo" onerror="this.style.display='none'">
+            <span class="domain-name">bathshop.az</span>
+        </a>
+
+        <div class="header-right">
+            <!-- Dil Seçimi (AZ, EN, RU) -->
+            <div class="lang-wrapper">
+                <i class="fas fa-globe"></i>
+                <select id="language-select" onchange="changeLanguage(this.value)">
+                    <option value="az" selected>AZ</option>
+                    <option value="en">EN</option>
+                    <option value="ru">RU</option>
+                </select>
+            </div>
+
+            <div class="location-badge">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="location-text">Bakı, Azərbaycan</span>
+            </div>
+
+            <!-- Səbət Düyməsi -->
+            <button class="cart-btn" onclick="toggleCart()" aria-label="Səbət">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Canlı Kreativ Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1 id="hero-title">Eviniz üçün Ən Keyfiyyətli Banyo Məhsulları</h1>
+            <p id="hero-sub">Bakı daxili sürətli çatdırılma və rəsmi zəmanət | Əlaqə: 077 611 02 33</p>
+            
+            <div class="hero-badges">
+                <div class="hero-chip">
+                    <i class="fas fa-truck-fast"></i>
+                    <span id="badge-1">Sürətli Çatdırılma</span>
+                </div>
+                <div class="hero-chip">
+                    <i class="fas fa-shield-halved"></i>
+                    <span id="badge-2">Rəsmi Zəmanət</span>
+                </div>
+                <div class="hero-chip">
+                    <i class="fas fa-award"></i>
+                    <span id="badge-3">Orijinal Məhsullar</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Məhsullar və Kateqoriya Filtrləri -->
+    <main class="container">
+        <div class="section-header">
+            <h2 id="products-title">Məhsullarımız</h2>
+            
+            <!-- Kateqoriya Filtrləri Düymələri -->
+            <div class="filter-group">
+                <button id="btn-all" class="filter-btn active" onclick="filterProducts('all')">
+                    <i class="fas fa-border-all"></i> <span id="text-all">Hamısı</span>
+                </button>
+                <button id="btn-heater" class="filter-btn" onclick="filterProducts('heater')">
+                    <i class="fas fa-fire-flame-simple"></i> <span id="text-heater">Qızdırıcılar</span>
+                </button>
+                <button id="btn-kombi" class="filter-btn" onclick="filterProducts('kombi')">
+                    <i class="fas fa-temperature-arrow-up"></i> <span id="text-kombi">Kombilər</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Məhsulların Grid Konteyneri -->
+        <div id="products-container" class="products-grid"></div>
+    </main>
+
+    <!-- Səbət Modalı (Yan Panel) -->
+    <div id="cart-modal" class="cart-modal" onclick="closeOnOverlay(event, 'cart-modal')">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-bag"></i> <span id="cart-modal-title">Səbətiniz</span></h3>
+                <button class="close-btn" onclick="toggleCart()">✕</button>
+            </div>
+
+            <div id="cart-items" class="cart-items"></div>
+
+            <div class="cart-footer">
+                <div class="total-price">
+                    <span id="total-label">Cəmi məbləğ:</span>
+                    <span><span id="cart-total">0.00</span> ₼</span>
+                </div>
+
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <label id="name-label" for="customer-name">Ad və Soyadınız:</label>
+                    <input type="text" id="customer-name" placeholder="Məs: Əli Əliyev">
+                    
+                    <label id="phone-label" for="customer-phone">Əlaqə nömrəniz:</label>
+                    <div class="phone-input-group">
+                        <select id="country-code" onchange="updatePhoneMask()">
+                            <option value="+994" data-length="9">+994 (AZ)</option>
+                            <option value="+90" data-length="10">+90 (TR)</option>
+                            <option value="+7" data-length="10">+7 (RU)</option>
+                            <option value="+44" data-length="10">+44 (UK)</option>
+                        </select>
+                        <input type="tel" id="customer-phone" placeholder="701234567" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+                    <small id="phone-hint">Nömrəni kodsuz daxil edin (9 rəqəm)</small>
+
+                    <div id="checkout-error" class="error-box"></div>
+
+                    <button id="checkout-submit-btn" class="checkout-btn" onclick="checkoutOrder()">
+                        <i class="fas fa-check-circle"></i> <span id="complete-btn-text">Sifarişi Təsdiq Et</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Məhsul Detal Modalı -->
+    <div id="product-modal" class="modal" onclick="closeOnOverlay(event, 'product-modal')">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeProductModal()">✕</button>
+            <div id="modal-product-details"></div>
+        </div>
+    </div>
+
+    <!-- Uğurlu Sifariş Modalı -->
+    <div id="success-modal" class="modal" onclick="closeOnOverlay(event, 'success-modal')">
+        <div class="modal-content success-box">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3 id="success-title">Sifarişiniz uğurla qəbul edildi!</h3>
+            <p id="success-desc">Tezliklə nümayəndəmiz sizinlə əlaqə saxlayacaq.</p>
+            <button class="add-to-cart" onclick="closeSuccessModal()" style="width: 100%; margin-top: 20px;">Bağla</button>
+        </div>
+    </div>
+
+    <!-- Bildiriş (Toast) -->
+    <div id="toast" class="toast">Məhsul səbətə əlavə edildi!</div>
+
+    <!-- Sürətli WhatsApp Düyməsi -->
+    <a href="https://wa.me/994776110233" target="_blank" class="whatsapp-float" title="WhatsApp ilə əlaqə">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>© 2026 <strong>bathshop.az</strong> — Bütün hüquqlar qorunur. | Əlaqə: <a href="tel:0776110233">077 611 02 33</a></p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
