@@ -103,6 +103,65 @@ const products = [
         ]
     },
     {
+        id: 13,
+        name: "GÜVEN Qazla İşləyən Su Qızdırıcısı – 32L",
+        category: "heater",
+        price: 120.00,
+        image: "mehsul13.jpeg",
+        phone: "077-611-02-33",
+        description: "GÜVEN markalı şaquli, divar tipli ani su qızdırıcısı: 32L göstəricisi, mexaniki nizamlayıcılar və rəqəmsal displey.",
+        specs: [
+            "Güclü 32 litr/dəq axın performansı",
+            "Qara metal korpus, ön paneldə LED temperatur göstəricisi (°C)",
+            "Qaz alovu tənzimləyicisi (Min–Max)",
+            "Su temperaturu tənzimləyicisi (Low–High)",
+            "Fəsil rejimi seçimi: Winter / Summer (Qış / Yay)",
+            "Stabil və sürətli qızdırma üçün ani tip su qızdırma sistemi",
+            "Enerji etiketli model",
+            "Qaz, su və baca qoşulmaları üçün alt hissədə standart giriş-çıxışlar",
+            "Mətbəx və hamam xətləri üçün davamlı isti su təminatı",
+            "Səssiz işləmə və dəqiq temperatur nəzarəti"
+        ]
+    },
+    {
+        id: 14,
+        name: "DemirDöküm Qazla İşləyən Su Qızdırıcısı – 24L",
+        category: "heater",
+        price: 145.00,
+        image: "mehsul14.jpeg",
+        phone: "077-611-02-33",
+        description: "Məişətdə gündəlik isti su tələbatı üçün praktik həll. Mətbəx və vanna otaqları üçün uyğundur, istifadəsi sadədir, temperaturu paneldən tez tənzimləməyə imkan verir.",
+        specs: [
+            "24L – eyni anda bir neçə nöqtədə isti su tələbatını qarşılayır",
+            "Rəqəmsal idarəetmə paneli və LED göstərici – temperaturun dəqiq tənzimlənməsi",
+            "“Smart Thermostat” funksiyası – sabit su temperaturu üçün avtomatik nəzarət",
+            "Tüstü borusu və çıxış sistemi komplektdə – effektiv havalandırma",
+            "Qaz, soyuq və isti su giriş/çıxışları üçün rənglənmiş birləşmələr – quraşdırmanı asanlaşdırır",
+            "Elektrik qoşulması üçün hazır şnur",
+            "Enerji etiketli dizayn – qənaətli işləmə",
+            "Sakit işləmə üçün fanlı konstruksiya"
+        ]
+    },
+    {
+        id: 15,
+        name: "Y.A.Ş. Qazla İşləyən Su Qızdırıcısı – 32L",
+        category: "heater",
+        price: 150.00,
+        image: "mehsul15.jpeg",
+        phone: "077-611-02-33",
+        description: "Kompakt korpusda ağıllı termostat və elektron idarəetmə ilə sabit temperaturda isti su təmin edən 32 litrlik qaz su qızdırıcısı. Enerji səmərəli və təhlükəsiz işləmə.",
+        specs: [
+            "32L",
+            "Enerji etiketi: yüksək səmərəlilik sinfi",
+            "Rəqəmsal idarəetmə paneli: LED göstərici, Up/Down düymələri, ON/OFF",
+            "Smart Thermostat: suyun temperaturunu dəqiq tənzimləmə",
+            "Təhlükəsiz iş rejimi",
+            "Davamlı konstruksiya: bərk korpus, bronza boru",
+            "Quraşdırma: yuxarı baca çıxışı ilə divardan asılan dizayn",
+            "İstifadə sahəsi: mənzil, ofis və kiçik obyektlərdə fasiləsiz isti su tələbatı üçün"
+        ]
+    },
+    {
         id: 8,
         name: "Su Nasosu – Təzyiq Avtomatı və Manometrli",
         category: "nasos",
