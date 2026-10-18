@@ -101,6 +101,105 @@ const products = [
             "Təhlükəsizlik sistemləri və diaqnostika",
             "Qapalı yanma kamerası və yığcam korpus"
         ]
+    },
+    {
+        id: 8,
+        name: "Su Nasosu – Təzyiq Avtomatı və Manometrli",
+        category: "nasos",
+        price: 65.00,
+        image: "mehsul8.jpeg",
+        phone: "077-611-02-33",
+        description: "Məişət və kiçik təsərrüfatlarda sabit su təzyiqi üçün praktik həll.",
+        specs: [
+            "Tip: Mərkəzdənqaçma (centrifugal) su nasosu",
+            "Komplektasiya: Üstündə avtomatik təzyiq nəzarət bloku (press-control) və analoq manometr",
+            "Tətbiq sahələri: Həyət evi və bağ su təchizatı, quyudan/xətdən su qaldırma, hidrofor sistemi, suvarma, kiçik emalatxana və servis xətləri",
+            "Avtomatik start/stop: Krandan su açıldıqda işə düşür, bağlandıqda sönür",
+            "Quru işdən qorunma (dry-run protection)",
+            "İnteqrə manometr ilə təzyiqin vizual nəzarəti",
+            "Üstünlüklər: Sakit və səmərəli işləmə, sabit təzyiqdə su verilişi",
+            "Korpus: Metal korpus, möhkəm flanş ayaqları ilə sabit quraşdırma",
+            "Qoşulma: Standart elektrik şəbəkəsi (1 faza); nasos gövdəsində giriş/çıxış yivli birləşmələr",
+            "Quraşdırma məsləhətləri: Giriş xəttinə geri dönməyən klapan və qabaq filtr qoyun; nasosu ilk işə salmadan əvvəl su ilə doldurun (priming); donmadan və birbaşa yağışdan qorunan yerdə yerləşdirin"
+        ]
+    },
+    {
+        id: 9,
+        name: "Markus Avtomatik Nasos İdarəetmə Bloku (Press-kontrol) – Manometrlə",
+        category: "nasos",
+        price: 25.00,
+        image: "mehsul9.jpeg",
+        phone: "077-611-02-33",
+        description: "Nasosu suyun təzyiqinə və axınına görə avtomatik işə salır və dayandırır. Komplektə avtomatik idarəetmə bloku və inteqrə olunmuş manometr daxildir.",
+        specs: [
+            "Brend: Markus",
+            "Avtomatik start/stop: suyun təzyiqi və axınına görə nasosu avtomatik işə salır və dayandırır",
+            "Üzərində analoq manometr: təzyiqi real vaxtda izləmə imkanı (0–10 bar şkalalı)",
+            "Giriş/çıxış birləşmələri: standart yivli qoşulma",
+            "Qoruma funksiyaları: quru işləməyə qarşı müdafiə, geri axının qarşısını alma",
+            "CE nişanlaması",
+            "Korpus: möhkəm plastik və metal birləşmələr, üst hissə mavi qoruyucu başlıqla",
+            "Tətbiq sahəsi: məişət su təchizatı, bağ suvarma sistemləri, artezian və quyudibi nasoslarının idarə edilməsi",
+            "Montaj: şaquli xəttə asan inteqrasiya, elektrik qoşulması üçün yan konnektor",
+            "Üstünlüklər: sabit təzyiq və fasiləsiz su axını, nasosun ömrünü uzadan qoruma mexanizmləri, manometrlə rahat nəzarət"
+        ]
+    },
+    {
+        id: 10,
+        name: "Mərkəzdənqaçma Tipli Elektrik Su Nasosu",
+        category: "nasos",
+        price: 120.00,
+        image: "mehsul10.jpeg",
+        phone: "077-611-02-33",
+        description: "Fərdi evlər, bağlar və kiçik emalatxanalar üçün etibarlı, sabit təzyiqli su nasosu.",
+        specs: [
+            "Tətbiq sahələri: suvarma, su təchizatı, quyudan su qaldırma, hidrofor sistemləri, çən və hovuzların doldurulması/boşaldılması, kiçik sənaye ehtiyacları",
+            "Korpus: möhkəm metal gövdə, korroziyaya davamlı rəngləmə",
+            "Mühərrik: hava ilə soyudulan elektrik mühərriki; səssiz və sabit işləmə üçün ventilyasiya kanatlı quruluş",
+            "Hidravlik hissə: önda giriş (sorma), yuxarıda çıxış (tullama); hava buraxma üçün yuxarı tıxac, aşağıda drenaj tıxacı",
+            "Montaj: sabit alt dayaqlar sayəsində üfüqi quraşdırma; elektrik qoşulması üçün yuxarı qoruyucu qutu",
+            "Üstünlüklər: sabit təzyiq, uzunmüddətli dayanıqlılıq, asan servis, standart ölçülü ehtiyat hissələri",
+            "Uyğun mayelər: təmiz və zəif çirklənmiş soyuq/ilıq su; kimyəvi aqressiv olmayan məhlullar",
+            "İstifadə tövsiyələri: ilk işə salmada nasosu su ilə doldurun; quru işlətməyin; filtr və klapan performansı artırır"
+        ]
+    },
+    {
+        id: 11,
+        name: "Su Nasosu 5M 53-31 (Sarı) – 1100 W",
+        category: "nasos",
+        price: 320.00,
+        image: "mehsul11.jpeg",
+        phone: "077-611-02-33",
+        specs: [
+            "Model: 5M 53-31",
+            "Güc: 1100 Vt",
+            "Material: Metal"
+        ]
+    },
+    {
+        id: 12,
+        name: "Markuces MKP62 Su Nasosu",
+        category: "nasos",
+        price: 40.00,
+        image: "mehsul12.jpeg",
+        phone: "077-611-02-33",
+        description: "Həyət və bağların suvarılması, quyudan və ya su çənindən suyun qaldırılması, ev təsərrüfatında təmiz suyun dövriyyəsi üçün. Kompakt korpus, aşağı enerji sərfiyyatı və sabit təzyiq.",
+        specs: [
+            "Brend: Markuces",
+            "Model: MKP62",
+            "Güc: 0.37 kW (0.5 HP)",
+            "Maks. hündürlük (lift): 40 m",
+            "Maks. su sərfi: 40 L/dəq",
+            "Sürət: 2850 dövr/dəq",
+            "Gərginlik/Frekans: 220V / 50Hz",
+            "Mühafizə sinfi: IP44",
+            "Davamlı rejimdə işləmə üçün nəzərdə tutulub",
+            "Kondensator: 10 μF, 450V",
+            "Cərəyan: In 2.5 A, 650 W max",
+            "İzolyasiya sinfi: B",
+            "CE sertifikatlı",
+            "İstehsal: P.R.C"
+        ]
     }
 ];
 
@@ -133,6 +232,7 @@ const translations = {
         filterAll: "Hamısı",
         filterHeater: "Qızdırıcılar",
         filterKombi: "Kombilər",
+        filterNasos: "Su nasosları",
         detailsBtn: "Ətraflı",
         addToCart: "Səbətə at",
         cartTitle: "Səbətiniz",
@@ -155,6 +255,7 @@ const translations = {
         filterAll: "All",
         filterHeater: "Heaters",
         filterKombi: "Boilers",
+        filterNasos: "Water pumps",
         detailsBtn: "Details",
         addToCart: "Add to Cart",
         cartTitle: "Your Cart",
@@ -177,6 +278,7 @@ const translations = {
         filterAll: "Все",
         filterHeater: "Водонагреватели",
         filterKombi: "Котлы (Комби)",
+        filterNasos: "Водяные насосы",
         detailsBtn: "Подробнее",
         addToCart: "В корзину",
         cartTitle: "Ваша корзина",
@@ -232,6 +334,7 @@ function changeLanguage(lang) {
     setText('text-all', t.filterAll);
     setText('text-heater', t.filterHeater);
     setText('text-kombi', t.filterKombi);
+    setText('text-nasos', t.filterNasos);
     setText('location-text', t.locationText);
     setText('cart-modal-title', t.cartTitle);
     setText('total-label', t.totalLabel);
@@ -257,7 +360,7 @@ function renderProducts() {
     const t = translations[currentLang];
 
     productsContainer.innerHTML = filteredProducts.map(product => {
-        const catBadge = product.category === 'kombi' ? t.filterKombi : t.filterHeater;
+        const catBadge = { kombi: t.filterKombi, nasos: t.filterNasos }[product.category] || t.filterHeater;
         return `
         <div class="product-card">
             <span class="card-badge">${catBadge}</span>
