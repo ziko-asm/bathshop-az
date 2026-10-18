@@ -10,14 +10,15 @@ app = FastAPI(title="BathShop Secure Backend", version="1.1")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=["https://bathshop-az-selling-site.vercel.app"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8704616357:AAFVt1mSspFtV00fAGQhhH7ZH5jYM7G9jKs")
-CHAT_ID = os.getenv("CHAT_ID", "1089304401")
+# Secrets come only from the hosting environment (Render -> Environment), never from the code.
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+CHAT_ID = os.getenv("CHAT_ID", "")
 
 class OrderItem(BaseModel):
     name: str
@@ -43,6 +44,8 @@ def create_order(order: OrderModel):
         f"💰 <b>Cəmi məbləğ:</b> {order.total:.2f} ₼"
     )
     
+    if not TELEGRAM_BOT_TOKEN or not CHAT_ID:
+        raise HTTPException(status_code=500, detail="Sifariş xidməti hazırda əlçatan deyil.")
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
         "chat_id": CHAT_ID,
