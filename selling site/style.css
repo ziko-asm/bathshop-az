@@ -820,10 +820,43 @@ body {
     font-weight: 700;
 }
 
+/* Müəllif nişanı (Instagram) */
+.author-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #be185d;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: #fdf2f8;
+    padding: 8px 14px;
+    border-radius: 30px;
+    border: 1px solid #fbcfe8;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.author-badge:hover {
+    background: #fce7f3;
+    transform: translateY(-1px);
+}
+
+.author-badge i {
+    font-size: 1.05rem;
+}
+
 /* Mobil Uyğunluq */
 @media (max-width: 768px) {
     .location-badge {
         display: none;
+    }
+    .header-right {
+        gap: 8px;
+    }
+    .author-badge {
+        padding: 7px 10px;
+        font-size: 0.75rem;
     }
     .hero-banner h1 {
         font-size: 1.85rem;
@@ -886,4 +919,13 @@ body {
 .cart-items {
     flex: 0 0 auto;
     overflow: visible;
+}
+/* Çox kiçik ekranlarda yalnız Instagram ikonu */
+@media (max-width: 480px) {
+    .author-badge span {
+        display: none;
+    }
+    .author-badge {
+        padding: 10px;
+    }
 }
